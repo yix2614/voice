@@ -2,6 +2,9 @@
   "name": "voice",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
     "@expo/ui": "~56.0.14",
     "expo": "~56.0.5",
@@ -33,6 +36,7 @@
   },
   "scripts": {
     "start": "expo start",
+    "build": "expo export -p web",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
