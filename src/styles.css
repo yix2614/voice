@@ -2,6 +2,7 @@
   color: #111;
   background: #020202;
   color-scheme: dark;
+  --status-area-bleed: env(safe-area-inset-top, 0px);
   --lg-glass: #bbbbbc;
   --lg-light: #ffffff;
   --lg-dark: #000000;
@@ -340,5 +341,27 @@ body {
 
   .phone-screen {
     border-radius: 0;
+  }
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+  @media (max-width: 840px) {
+    .page-shell,
+    .phone-stage {
+      top: calc(-1 * var(--status-area-bleed));
+      height: calc(100vh + var(--status-area-bleed));
+      height: calc(100svh + var(--status-area-bleed));
+      height: calc(100dvh + var(--status-area-bleed));
+    }
+
+    .phone {
+      height: calc(100vh + var(--status-area-bleed));
+      height: calc(100svh + var(--status-area-bleed));
+      height: calc(100dvh + var(--status-area-bleed));
+    }
+
+    .speech-transcript {
+      top: calc(40px + var(--status-area-bleed));
+    }
   }
 }
